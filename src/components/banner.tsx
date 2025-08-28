@@ -14,7 +14,7 @@ const AuthorBanner: React.FC<AuthorBannerProps> = ({ name, imageUrl }) => {
 
   const fullText = [
     "Charlie O Ukwu, (Diploma, Mass Communication, University of Lagos Nigeria), BA (Journalism/ Economics, Indiana University, Bloomington, Indiana, USA), MA (Economics, Indiana University, Bloomington, Indiana, USA), MBA (Business Computing Science, Texas A&M University, College Station, Texas USA) was born the son of a coal miner at Iva Valley, near Enugu, Nigeria.",
-    "Despite a 6-year exciting job at Nigerian Broadcasting Corporation, Charlie Ieft, cast his faith to the wind, to pursue learning and education to acquire the credentials detailed above. This strategy worked so well that he recommends this method for all young people rather than chasing after money as their goal in life. Everyone's life mission ought to be bigger than money. Readers will learn more about this matter in an upcoming book, Money Disorder.",
+    "Despite a 6-year exciting job at Nigerian Broadcasting Corporation, Charlie left, cast his faith to the wind, to pursue learning and education to acquire the credentials detailed above. This strategy worked so well that he recommends this method for all young people rather than chasing after money as their goal in life. Everyone's life mission ought to be bigger than money. Readers will learn more about this matter in an upcoming book, Money Disorder.",
   ];
 
   const truncatedText = fullText.slice(0, 1);
@@ -38,10 +38,29 @@ const AuthorBanner: React.FC<AuthorBannerProps> = ({ name, imageUrl }) => {
 
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200"
+            className="text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200 mb-6"
           >
             {isExpanded ? "Read Less" : "Read More..."}
           </button>
+
+          {/* Waitlist Card directly under bio */}
+          <div className="shadow-lg rounded-xl h-auto w-full max-w-md bg-white flex flex-col items-center justify-between p-4 lg:p-6 gap-3 border border-gray-100 mx-auto md:mx-0">
+            <h1 className="text-[#1da0f1] font-bold text-xl lg:text-2xl text-center">
+              Be the first to know!
+            </h1>
+            <p className="text-sm lg:text-base text-center text-gray-600">
+              Get notified when{" "}
+              <span className="italic font-semibold">MONEY DISORDER</span> and
+              other book updates are live. Join the waitlist
+            </p>
+            <Button
+              className="bg-black text-white hover:bg-gray-800 w-full transition-colors"
+              asChild
+              variant={"outline"}
+            >
+              <Link href={"#contact"}>Join the waitlist!</Link>
+            </Button>
+          </div>
         </div>
 
         {/* Image Container */}
@@ -54,44 +73,6 @@ const AuthorBanner: React.FC<AuthorBannerProps> = ({ name, imageUrl }) => {
             priority
           />
         </div>
-      </div>
-
-      {/* Floating Waitlist Card - Desktop Only */}
-      <div className="hidden md:flex shadow-lg absolute rounded-xl h-auto w-[280px] lg:w-[320px] bg-white left-[5%] lg:left-[10%] bottom-8 flex-col items-center justify-between p-4 lg:p-6 gap-3 border border-gray-100 z-50">
-        <h1 className="text-[#1da0f1] font-bold text-xl lg:text-2xl text-center">
-          Be the first to know!
-        </h1>
-        <p className="text-sm lg:text-base text-center text-gray-600">
-          Get notified when{" "}
-          <span className="italic font-semibold">MONEY DISORDER</span> and
-          other book updates are live. Join the waitlist
-        </p>
-        <Button
-          className="bg-black text-white hover:bg-gray-800 w-full transition-colors"
-          asChild
-          variant={"outline"}
-        >
-          <Link href={"#contact"}>Join the waitlist!</Link>
-        </Button>
-      </div>
-
-      {/* Mobile Waitlist Card - Shows at bottom on mobile */}
-      <div className="md:hidden shadow-lg rounded-xl bg-white mx-4 mb-4 p-4 flex flex-col items-center justify-between gap-3 border border-gray-100 z-40 absolute bottom-4 left-0 right-0">
-        <h1 className="text-[#1da0f1] font-bold text-xl text-center">
-          Be the first to know!
-        </h1>
-        <p className="text-sm text-center text-gray-600">
-          Get notified when{" "}
-          <span className="italic font-semibold">MONEY DISORDER</span> and other
-          book updates are live.
-        </p>
-        <Button
-          className="bg-black text-white hover:bg-gray-800 w-full transition-colors"
-          asChild
-          variant={"outline"}
-        >
-          <Link href={"#contact"}>Join the waitlist!</Link>
-        </Button>
       </div>
     </div>
   );
