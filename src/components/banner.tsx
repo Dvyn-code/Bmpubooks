@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import { Button } from "./ui/button";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -42,25 +41,6 @@ const AuthorBanner: React.FC<AuthorBannerProps> = ({ name, imageUrl }) => {
           >
             {isExpanded ? "Read Less" : "Read More..."}
           </button>
-
-          {/* Waitlist Card directly under bio */}
-          <div className="shadow-lg rounded-xl h-auto w-full max-w-md bg-white flex flex-col items-center justify-between p-4 lg:p-6 gap-3 border border-gray-100 mx-auto md:mx-0">
-            <h1 className="text-[#1da0f1] font-bold text-xl lg:text-2xl text-center">
-              Be the first to know!
-            </h1>
-            <p className="text-sm lg:text-base text-center text-gray-600">
-              Get notified when{" "}
-              <span className="italic font-semibold">MONEY DISORDER</span> and
-              other book updates are live. Join the waitlist
-            </p>
-            <Button
-              className="bg-black text-white hover:bg-gray-800 w-full transition-colors"
-              asChild
-              variant={"outline"}
-            >
-              <Link href={"#contact"}>Join the waitlist!</Link>
-            </Button>
-          </div>
         </div>
 
         {/* Image Container */}
