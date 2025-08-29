@@ -42,7 +42,6 @@ const AuthorBanner: React.FC<AuthorBannerProps> = ({ name, imageUrl }) => {
             {isExpanded ? "Read Less" : "Read More..."}
           </button>
         </div>
-
         {/* Image Container */}
         <div className="w-full md:w-1/2 order-1 md:order-2 relative aspect-square h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px]">
           <Image
