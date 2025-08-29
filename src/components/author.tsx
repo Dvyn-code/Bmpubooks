@@ -1,61 +1,85 @@
 "use client";
+import { authorData } from "@/lib/utils/constants";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 
-interface AuthorBannerProps {
-  name: string;
-  imageUrl: string;
-}
-
-const AuthorBanner: React.FC<AuthorBannerProps> = ({ name, imageUrl }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  const fullText = [
-    "Charlie O Ukwu, (Diploma, Mass Communication, University of Lagos Nigeria), BA (Journalism/ Economics, Indiana University, Bloomington, Indiana, USA), MA (Economics, Indiana University, Bloomington, Indiana, USA), MBA (Business Computing Science, Texas A&M University, College Station, Texas USA) was born the son of a coal miner at Iva Valley, near Enugu, Nigeria.",
-    "Despite a 6-year exciting job at Nigerian Broadcasting Corporation, Charlie left, cast his faith to the wind, to pursue learning and education to acquire the credentials detailed above. This strategy worked so well that he recommends this method for all young people rather than chasing after money as their goal in life. Everyone's life mission ought to be bigger than money. Readers will learn more about this matter in an upcoming book, Money Disorder.",
-  ];
-
-  const truncatedText = fullText.slice(0, 1);
+const AuthorSection = () => {
+  const { tagline, name, contactButtonText, contactLink } = authorData;
 
   return (
-    <div className="relative rounded-xl overflow-hidden w-full max-w-7xl mx-auto min-h-screen">
-      <div className="flex flex-col md:flex-row items-center justify-between w-full gap-6 px-4 sm:px-6 lg:px-8 py-8">
-        {/* Text Content */}
-        <div className="md:w-1/2 text-center md:text-left md:pl-10 lg:pl-20 order-2 md:order-1">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-4 md:mb-6">
-            {name}
-          </h1>
-
-          <div className="text-gray-700 mb-6 text-base sm:text-lg md:text-xl">
-            {(isExpanded ? fullText : truncatedText).map((paragraph, index) => (
-              <p key={index} className="mb-4 last:mb-0">
-                {paragraph}
-              </p>
-            ))}
+    <section id="author" className="py-20 px-3 md:px-0">
+      <div className="container mx-auto px-4 md:px-6">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
+          className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center transition-all duration-700"
+        >
+          {/* Author Image Column */}
+          <div className="relative">
+            <div className="aspect-[4/5] bg-bg-gray-dark rounded-lg overflow-hidden shadow-xl">
+              <div className="w-full h-full bg-gradient-to-br from-book-primary/20 to-book-accent/20 flex items-center justify-center">
+                <Image
+                  layout="fill"
+                  src={"/images/book_cover.png"}
+                  alt="book_image"
+                />
+              </div>
+            </div>
           </div>
 
-          <button
-            onClick={() => setIsExpanded(!isExpanded)}
-            className="text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200 mb-6"
-          >
-            {isExpanded ? "Read Less" : "Read More..."}
-          </button>
-        </div>
+          {/* Author Info Column */}
+          <div className="space-y-6">
+            <span className="inline-block px-3 py-1 bg-book-accent/10 text-book-accent text-xs font-medium rounded-full">
+              {tagline}
+            </span>
 
-        {/* Image Container */}
-        <div className="w-full md:w-1/2 order-1 md:order-2 relative aspect-square h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px]">
-          <Image
-            fill
-            src={imageUrl}
-            alt={`${name}`}
-            className="object-cover shadow-lg rounded-lg"
-            priority
-          />
-        </div>
+            <h2 className="text-3xl md:text-4xl font-bold">{name}</h2>
+
+            <div className="w-16 h-1 bg-book-accent"></div>
+
+            <p className="text-lg leading-relaxed">
+              Charlie O Ukwu was born at Iva Valley, near Enugu, Nigeria, the
+              first of five children, to Mr. & Mrs. Basil Maduka Ukwu. Under the
+              age of twelve, he lived with his grandparents, then with his
+              mother and father, and his stepmother and father, in alternate
+              years. At twelve, he moved to live with a teacher for two years
+              before going to high school. tical moves and uncertainties during
+              his childhood appeared an inner balance — emotional,
+              psychological, and structural — that is rare for someone his age.
+            </p>
+
+            <p className="text-foreground/80 leading-relaxed">
+              With the inner balance secured, it is no wonder Government
+              College, Umuahia in Abia State, Ngeria, became the launching pad
+              for an academic pursuit that lasted 20 years, only interrupted by
+              three years of the Nigerian civil war.{" "}
+            </p>
+
+            <p className="text-foreground/80 leading-relaxed">
+              Charlie&apos;s strategy was to prioritize education and readiness
+              over the pursuit of immediate financial goals. He discovered early
+              that the preparation of self, through the growth of human capital,
+              is the most rewarding and lasting investment one can make. He
+              believes that life&apos;s mission should be bigger than chasing
+              after money. Readers can explore this philosophy further in his
+              upcoming book, “Money Disorder”.
+            </p>
+
+            <div className="pt-6">
+              <Link
+                href={contactLink}
+                className="inline-flex items-center px-6 py-3 bg-bg-gray-dark text-white rounded hover:bg-book-primary/90 transition-all duration-200"
+              >
+                {contactButtonText}
+              </Link>
+            </div>
+          </div>
+        </motion.div>
       </div>
-    </div>
+    </section>
   );
 };
 
-export default AuthorBanner;
+export default AuthorSection;
