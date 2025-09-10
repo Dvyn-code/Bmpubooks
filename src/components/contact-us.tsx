@@ -72,6 +72,11 @@ const ContactSection = () => {
                     Charlie.Ukwu@bmpu.org
                   </a>
                 </div>
+                <div>
+                  <button className="bg-blue-500 hover:bg-blue-600 text-white">
+                    <a href="https://bmpu.org">bmpU</a>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
