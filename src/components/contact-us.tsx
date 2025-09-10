@@ -79,7 +79,7 @@ const ContactSection = () => {
                   {/* bmpU button BELOW email */}
                   <a
                     href="https://bmpu.org"
-                    className="inline-block mt-3 px-4 py-2 border border-blue-500 text-blue-500 rounded hover:bg-blue-500 hover:text-white transition-colors"
+                    className="inline-block mt-3 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
                   >
                     bmpU
                   </a>
