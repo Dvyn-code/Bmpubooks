@@ -16,7 +16,7 @@ const ContactSection = () => {
             <span className="inline-block px-3 py-1 bg-bg-gray-dark/10 text-book-accent text-xs font-medium rounded-full mb-4">
               Get in Touch
             </span>
-            <h2 className=" text-3xl md:text-4xl font-bold mb-4">Contact Us</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Contact Us</h2>
             <div className="w-16 h-1 bg-book-accent mb-6" />
 
             <p className="text-lg text-foreground/80 mb-8 max-w-lg">
@@ -25,6 +25,7 @@ const ContactSection = () => {
             </p>
 
             <div className="space-y-6 mb-8">
+              {/* Organization */}
               <div className="flex items-start space-x-4">
                 <div className="bg-bg-gray-dark/10 p-3 rounded-full text-book-accent">
                   <BiBuilding size={20} />
@@ -35,6 +36,7 @@ const ContactSection = () => {
                 </div>
               </div>
 
+              {/* Address */}
               <div className="flex items-start space-x-4">
                 <div className="bg-bg-gray-dark/10 p-3 rounded-full text-book-accent">
                   <BiMap size={20} />
@@ -47,6 +49,7 @@ const ContactSection = () => {
                 </div>
               </div>
 
+              {/* Phone */}
               <div className="flex items-start space-x-4">
                 <div className="bg-bg-gray-dark/10 p-3 rounded-full text-book-accent">
                   <BiPhone size={20} />
@@ -59,6 +62,7 @@ const ContactSection = () => {
                 </div>
               </div>
 
+              {/* Email + Button */}
               <div className="flex items-start space-x-4">
                 <div className="bg-bg-gray-dark/10 p-3 rounded-full text-book-accent">
                   <BiMailSend size={20} />
@@ -67,15 +71,18 @@ const ContactSection = () => {
                   <h3 className="font-medium">Email</h3>
                   <a
                     href="mailto:Charlie.Ukwu@bmpu.org"
-                    className="text-foreground/70"
+                    className="text-foreground/70 block"
                   >
                     Charlie.Ukwu@bmpu.org
                   </a>
-                </div>
-                <div>
-                  <button className="bg-blue-500 hover:bg-blue-600 text-white">
-                    <a href="https://bmpu.org">bmpU</a>
-                  </button>
+
+                  {/* bmpU button BELOW email */}
+                  <a
+                    href="https://bmpu.org"
+                    className="inline-block mt-3 px-4 py-2 border border-blue-500 text-blue-500 rounded hover:bg-blue-500 hover:text-white transition-colors"
+                  >
+                    bmpU
+                  </a>
                 </div>
               </div>
             </div>
